@@ -1,0 +1,39 @@
+.nomatch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nomatch__code {
+  margin: 246px 0 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 140px;
+  text-align: center;
+}
+
+.nomatch__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 5px;
+}
+
+.nomatch__back {
+  margin: 184px 0 60px 0;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #3456F3;
+  transition: 0.5s ease-in-out;
+}
+
+.nomatch__back:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}

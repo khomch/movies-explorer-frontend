@@ -1,0 +1,92 @@
+.aboutme__content {
+  max-width: 1140px;
+  width: calc(100% - 70px*2);
+  display: grid;
+  grid-template-columns: minmax(auto, 600px) 1fr;
+  grid-template-areas:
+  "title title"
+  "name avatar"
+  "occupation avatar"
+  "bio avatar"
+  "links avatar";
+}
+
+.aboutme__title {
+  grid-area: title;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  border-bottom: 1px #000000 solid;
+  margin-top: 110px;
+  margin-bottom: 0;
+  padding-bottom: 23px;
+}
+
+.aboutme__name {
+  grid-area: name;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  margin-top: 66px;
+  margin-bottom: 18px;
+}
+
+.aboutme__occupation {
+  grid-area: occupation;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0 0 26px 0;
+}
+
+.aboutme__bio {
+  grid-area: bio;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  padding-right: 20px;
+  margin: 0 0 99px 0;
+}
+
+.aboutme__avatar{
+  grid-area: avatar;
+  margin: 0;
+  width: 270px;
+  height: 327px;
+  justify-self: end;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.aboutme__links {
+  grid-area: links;
+  margin: 0 0 101px 0;
+  margin-bottom: 100px;
+  display: grid;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  list-style: none;
+  justify-content: start;
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0;
+  grid-column-gap: 20px;
+}
+
+.aboutme__link {
+  color: #000000;
+  text-decoration: none;
+  transition: 0.5s ease-in-out;
+}
+
+.aboutme__link:hover {
+  color: #3456F3;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
