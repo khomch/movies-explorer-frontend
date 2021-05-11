@@ -112,3 +112,31 @@
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
+
+@media screen and (max-width: 890px) {
+  .login {
+    max-width: 456px;
+    width: calc(100% - 30px*2);
+    margin-top: 32px;
+  } 
+
+  .login__title {
+    width: calc(100% - 30px*2);
+  }
+
+  .login__form {
+    width: calc(100% - 30px*2);
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  .login__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .login__form {
+    width: 100%;
+  }
+}

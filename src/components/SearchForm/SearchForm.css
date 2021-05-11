@@ -4,7 +4,6 @@
   height: 72px;
   border-radius: 9px;
   margin: 70px 0 70px 0;
-  border-bottom: 1px solid #E8E8E8;
   display: grid;
   z-index: 0;
   grid-template-columns: auto;
@@ -24,6 +23,12 @@
   grid-template-areas: 
   "icon find button checkbox";
   
+}
+
+.searchform__checkbox {
+  grid-area: checkbox;
+  justify-self: center;
+  align-self: center;
 }
 
 .searchform__form:focus-within{
@@ -76,4 +81,49 @@
   transition: 0.5s ease-in-out;
 }
 
+@media screen and (max-width: 890px) {
+  .searchform__content {
+    max-width: 890px;
+    width: calc(100% - 30px*2);
+  } 
 
+}
+
+@media screen and (max-width: 640px) {
+  .searchform__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+    display: flex;
+    margin-bottom: 100px;
+    
+  }
+  .searchform__form {
+    background-color: #F4F4F4;
+    grid-template-columns: 1fr;
+    transition: 0.5s ease-in-out;
+    border-radius: 9px;
+    display: grid;
+    z-index: 0;
+    width: 100%;
+    grid-template-areas: 
+    "find button" 
+    "checkbox checkbox";
+    
+  }
+
+  .searchform__search-button {
+    margin-right: 19px;
+  }
+
+  .searchform__checkbox {
+    grid-area: checkbox;
+    justify-self: center;
+    margin: 45px 0 44px 0;
+  }
+
+  .searchform__input {
+    padding-left: 15px;
+    height: 70px;
+   }
+  
+}

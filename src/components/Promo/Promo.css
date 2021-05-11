@@ -70,3 +70,70 @@
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
+
+@media screen and (max-width: 890px) {
+  .promo__content {
+    max-width: 890px;
+    width: calc(100% - 30px*2);
+    display: grid;
+    margin-top: 140px;
+    grid-template-columns: minmax(auto, 890px);
+    grid-template-areas:
+    "image"
+    "title"
+    "subtitle"
+    "button"
+  }
+  .promo__image {
+    justify-self: center;
+  }
+
+
+  .promo__title {
+    justify-self: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 22px;
+    max-width: 680px;
+  }
+
+  .promo__subtitle {
+    justify-self: center;
+    opacity: 0.5;
+    max-width: 260px;
+    margin-bottom: 92px;
+    text-align: center;
+  }
+
+  .promo__button {
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .promo__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+  }
+
+  .promo__image {
+    width: 210px;
+    height: 206px;
+    background-size: contain;
+  }
+
+  .promo__title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .promo__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+

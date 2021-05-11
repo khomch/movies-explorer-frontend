@@ -5,7 +5,11 @@ function Profile(props) {
   return (
 
     <div className="profile">
-        <Header/>
+        <Header
+          openMobileMenu={props.openMobileMenu}
+          mobileMenuIsOpen={props.mobileMenuIsOpen}
+          onMobileMenuClose={props.onMobileMenuClose}
+        />
       <h2 className="profile__title">Привет, Виталий!</h2>
       
         <div className="profile__name">

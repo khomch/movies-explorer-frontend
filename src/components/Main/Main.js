@@ -11,7 +11,11 @@ function Main(props) {
 
     <div className="main">
       <section className="main__promo">
-        <Header/>
+        <Header
+          openMobileMenu={props.openMobileMenu}
+          mobileMenuIsOpen={props.mobileMenuIsOpen}
+          onMobileMenuClose={props.onMobileMenuClose}
+          />
         <Promo/>
       </section>
       <section className="main__aboutproject">

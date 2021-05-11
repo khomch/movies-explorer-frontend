@@ -11,7 +11,9 @@ function SearchForm(props) {
           required aria-label="инпут фильма"/>
             {/* <span className="searchform___error" id="link-error"/> */}
             <button className="searchform__search-button" type="submit" aria-label="Тык"></button>
-            <FilterCheckbox/>
+            <div className="searchform__checkbox">
+              <FilterCheckbox/>
+            </div>
         </form>
     </div>
 

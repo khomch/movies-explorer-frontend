@@ -4,7 +4,7 @@
   display: grid;
   grid-template-areas:
   "title title"
-  "subtitle subtitle"
+  "subtitle-phases subtitle-weeks"
   "leftside rightside"
   "timeline timeline";
 }
@@ -21,15 +21,28 @@
   padding-bottom: 23px;
 }
 
-.aboutproject__subtitle {
-  grid-area: subtitle;
+.aboutproject__subtitle-phases {
+  grid-area: subtitle-phases;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
   margin-top: 70px;
   margin-bottom: 26px;
+  padding-right: 20px;
 }
+
+.aboutproject__subtitle-weeks {
+  grid-area: subtitle-weeks;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 70px;
+  margin-bottom: 26px;
+  padding-left: 20px;
+}
+
 
 .aboutproject__text-plan {
   grid-area: leftside;
@@ -59,11 +72,12 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  grid-template-columns: 288px 1fr;
+  grid-template-columns: minmax(100px, 288px) 1fr;
   grid-template-areas:
   "one-week four-weeks"
   "back-end front-end";
   margin-bottom: 100px;
+  
 }
 
 .aboutproject__timeline-one-week {
@@ -110,3 +124,63 @@
   height: 36px;
   margin: 0;
 }
+
+@media screen and (max-width: 890px) {
+  .aboutproject__content {
+    max-width: 890px;
+    width: calc(100% - 50px*2);
+  }
+
+  .aboutproject__title {
+    margin-top: 90px;
+  }
+
+  .aboutproject__timeline {
+    margin-bottom: 90px;
+    grid-template-columns: minmax(100px, 140px) 1fr;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .aboutproject__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+    display: grid;
+    grid-template-areas:
+    "title"
+    "subtitle-phases"
+    "leftside"
+    "subtitle-weeks"
+    "rightside"
+    "timeline";
+  }
+
+  .aboutproject__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .aboutproject__subtitle-phases {
+    padding-right: 0px;
+  }
+
+  .aboutproject__subtitle-weeks {
+    padding-left: 0px;
+  }
+
+
+  .aboutproject__text-plan {
+    padding-right: 0px;
+  }
+
+  .aboutproject__text-deadlines {
+    padding-left: 0px;
+  }
+
+  .aboutproject__timeline {
+    margin-bottom: 90px;
+    grid-template-columns: minmax(100px, 100px) 1fr;
+  }
+}
+

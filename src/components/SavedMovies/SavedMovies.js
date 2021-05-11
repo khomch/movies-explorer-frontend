@@ -9,7 +9,11 @@ function SavedMovies(props) {
   return (
 
     <div className="saved-movies">
-        <Header/>
+        <Header
+          openMobileMenu={props.openMobileMenu}
+          mobileMenuIsOpen={props.mobileMenuIsOpen}
+          onMobileMenuClose={props.onMobileMenuClose}
+        />
         <SearchForm/>
         <Preloader/>
         <MoviesCardList/>

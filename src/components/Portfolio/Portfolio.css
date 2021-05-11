@@ -53,6 +53,33 @@
   transition: 0.5s ease-in-out;
 }
 
-.portfolio__icon-arrow {
-  width: 27px;
+
+@media screen and (max-width: 890px) {
+  .portfolio__content {
+    max-width: 890px;
+    width: calc(100% - 50px*2);
+  } 
+}
+
+
+@media screen and (max-width: 640px) {
+  .portfolio__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+  }
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+    background-size: 10px;
+  }
+
+  .portfolio__title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .portfolio__links {
+    margin-bottom: 149px;
+  }
+
 }

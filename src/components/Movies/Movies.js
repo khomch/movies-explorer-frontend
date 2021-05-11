@@ -8,7 +8,11 @@ function Movies(props) {
   return (
 
     <div className="movies">
-        <Header/>
+        <Header
+          openMobileMenu={props.openMobileMenu}
+          mobileMenuIsOpen={props.mobileMenuIsOpen}
+          onMobileMenuClose={props.onMobileMenuClose}
+          />
         <SearchForm/>
         <Preloader/>
         <MoviesCardList/>

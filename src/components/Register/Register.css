@@ -112,3 +112,32 @@
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
+
+
+@media screen and (max-width: 890px) {
+  .register {
+    max-width: 456px;
+    width: calc(100% - 30px*2);
+    margin-top: 32px;
+  } 
+
+  .register__title {
+    width: calc(100% - 30px*2);
+  }
+
+  .register__form {
+    width: calc(100% - 30px*2);
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  .register__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .register__form {
+    width: 100%;
+  }
+}

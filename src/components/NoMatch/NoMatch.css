@@ -37,3 +37,17 @@
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
+
+@media screen and (max-width: 640px) {
+  .nomatch__code {
+    font-size: 80px;
+  }
+
+  .nomatch__text{
+    font-size: 12px;
+  }
+
+  .nomatch__back {
+    font-size: 12px;
+  }
+}
