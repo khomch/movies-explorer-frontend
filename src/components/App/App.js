@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Main from '../Main/Main.js'
 import Movies from '../Movies/Movies.js'
@@ -7,7 +7,7 @@ import Profile from '../Profile/Profile.js'
 import Register from '../Register/Register.js'
 import Login from '../Login/Login.js'
 import NoMatch from '../NoMatch/NoMatch.js'
-import Header from '../Header/Header.js'
+
 
 
 
