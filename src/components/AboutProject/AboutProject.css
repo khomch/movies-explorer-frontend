@@ -1,0 +1,186 @@
+.aboutproject__content {
+  max-width: 1140px;
+  width: calc(100% - 70px*2);
+  display: grid;
+  grid-template-areas:
+  "title title"
+  "subtitle-phases subtitle-weeks"
+  "leftside rightside"
+  "timeline timeline";
+}
+
+.aboutproject__title {
+  grid-area: title;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  border-bottom: 1px #000000 solid;
+  margin-top: 110px;
+  margin-bottom: 0;
+  padding-bottom: 23px;
+}
+
+.aboutproject__subtitle-phases {
+  grid-area: subtitle-phases;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 70px;
+  margin-bottom: 26px;
+  padding-right: 20px;
+}
+
+.aboutproject__subtitle-weeks {
+  grid-area: subtitle-weeks;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 70px;
+  margin-bottom: 26px;
+  padding-left: 20px;
+}
+
+
+.aboutproject__text-plan {
+  grid-area: leftside;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  padding-right: 20px;
+  margin: 0;
+}
+
+.aboutproject__text-deadlines {
+  grid-area: rightside;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.aboutproject__timeline {
+  grid-area: timeline;
+  margin-top: 110px;
+  display: grid;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  grid-template-columns: minmax(100px, 288px) 1fr;
+  grid-template-areas:
+  "one-week four-weeks"
+  "back-end front-end";
+  margin-bottom: 100px;
+  
+}
+
+.aboutproject__timeline-one-week {
+  grid-area: one-week;
+  background-color: #3456F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+}
+
+.aboutproject__timeline-back-end {
+  grid-area: back-end;
+  display: flex;
+  color: #A0A0A0;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 0;
+}
+
+.aboutproject__timeline-four-weeks {
+  grid-area: four-weeks;
+  display: flex;
+  background-color: #F2F2F2;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 0;
+}
+
+.aboutproject__timeline-front-end {
+  grid-area: front-end;
+  display: flex;
+  color: #A0A0A0;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 0;
+}
+
+@media screen and (max-width: 890px) {
+  .aboutproject__content {
+    max-width: 890px;
+    width: calc(100% - 50px*2);
+  }
+
+  .aboutproject__title {
+    margin-top: 90px;
+  }
+
+  .aboutproject__timeline {
+    margin-bottom: 90px;
+    grid-template-columns: minmax(100px, 140px) 1fr;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .aboutproject__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+    display: grid;
+    grid-template-areas:
+    "title"
+    "subtitle-phases"
+    "leftside"
+    "subtitle-weeks"
+    "rightside"
+    "timeline";
+  }
+
+  .aboutproject__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .aboutproject__subtitle-phases {
+    padding-right: 0px;
+  }
+
+  .aboutproject__subtitle-weeks {
+    padding-left: 0px;
+  }
+
+
+  .aboutproject__text-plan {
+    padding-right: 0px;
+  }
+
+  .aboutproject__text-deadlines {
+    padding-left: 0px;
+  }
+
+  .aboutproject__timeline {
+    margin-bottom: 90px;
+    grid-template-columns: minmax(100px, 100px) 1fr;
+  }
+}
+

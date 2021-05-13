@@ -1,0 +1,32 @@
+
+
+.filtercheckbox__checkbox-area {
+  grid-area: checkbox;
+  border-left: 1px solid #E8E8E8;
+  display: grid;
+  z-index: 20;
+  width: 100%;
+  height: 40px;
+  align-self: center;
+  grid-template-columns: minmax(auto, 65px) minmax(auto, 161px);
+}
+
+.filtercheckbox__checkbox {
+  justify-self: flex-end;
+  align-self: center;
+}
+
+.filtercheckbox__caption {
+  margin: 0 0 0 14px;
+  align-self: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 640px) {
+  .filtercheckbox__checkbox-area {
+    border-left: 0px solid #E8E8E8;
+  }
+}

@@ -1,0 +1,129 @@
+.searchform__content {
+  max-width: 1140px;
+  width: calc(100% - 70px*2);
+  height: 72px;
+  border-radius: 9px;
+  margin: 70px 0 70px 0;
+  display: grid;
+  z-index: 0;
+  grid-template-columns: auto;
+  grid-template-areas: 
+  "search";
+}
+
+.searchform__form {
+  grid-area: search;
+  background-color: #F4F4F4;
+  transition: 0.5s ease-in-out;
+  border-radius: 9px;
+  display: grid;
+  z-index: 0;
+  width: 100%;
+  grid-template-columns: minmax(auto, 64px) minmax(auto, 740px) minmax(auto, 110px) minmax(auto,226px);
+  grid-template-areas: 
+  "icon find button checkbox";
+  
+}
+
+.searchform__checkbox {
+  grid-area: checkbox;
+  justify-self: center;
+  align-self: center;
+}
+
+.searchform__form:focus-within{
+  box-shadow: 0px 0px 2px 1px #3456F3;
+}
+
+.searchform__input {
+  background-color: #F4F4F4;
+  border: none;
+  border-radius: 9px;
+  height: 72px;
+  display: grid;
+  z-index: 10;
+  grid-area: find;
+  outline:#3456F3;
+ }
+
+ .searchform__icon {
+   background: url("../../images/icon-search.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   width: 100%;
+   display: grid;
+   z-index: 20;
+   grid-area: icon;
+ }
+
+.searchform__search-button {
+  width: 80px;
+  height: 34px;
+  display: grid;
+  z-index: 20;
+  border: none;
+  color: #fff;
+  background: url("../../images/icon-search_white.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #3456F3;
+  border-radius: 48px;  
+  align-content: center;
+  grid-area: button;
+  justify-self: start;
+  align-self: center;
+  transition: 0.5s ease-in-out;
+}
+
+.searchform__search-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 890px) {
+  .searchform__content {
+    max-width: 890px;
+    width: calc(100% - 30px*2);
+  } 
+
+}
+
+@media screen and (max-width: 640px) {
+  .searchform__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+    display: flex;
+    margin-bottom: 100px;
+    
+  }
+  .searchform__form {
+    background-color: #F4F4F4;
+    grid-template-columns: 1fr;
+    transition: 0.5s ease-in-out;
+    border-radius: 9px;
+    display: grid;
+    z-index: 0;
+    width: 100%;
+    grid-template-areas: 
+    "find button" 
+    "checkbox checkbox";
+    
+  }
+
+  .searchform__search-button {
+    margin-right: 19px;
+  }
+
+  .searchform__checkbox {
+    grid-area: checkbox;
+    justify-self: center;
+    margin: 45px 0 44px 0;
+  }
+
+  .searchform__input {
+    padding-left: 15px;
+    height: 70px;
+   }
+  
+}

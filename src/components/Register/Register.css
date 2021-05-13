@@ -1,0 +1,143 @@
+.register {
+  margin-top: 70px;
+  max-width: 536px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register__title {
+  margin: 74px 0 40px 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  width: calc(100% - 70px*2);
+}
+
+
+
+.register__form {
+  transition: 0.5s ease-in-out;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  width: calc(100% - 70px*2);
+}
+
+.register__input-name {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+  margin: 20px 0 10px 0;
+}
+
+.register__input {
+  background-color: #F4F4F4;
+  border: none;
+  border-radius: 9px;
+  height: 46px;
+  display: grid;
+  z-index: 10;
+  grid-area: find;
+  outline:#3456F3;
+  padding-left: 15px;
+ }
+
+ .register__input:invalid{
+   color:#EE3465;
+ }
+ .register__input:focus{
+  box-shadow: 0px 0px 2px 1px #3456F3;
+}
+
+.register___error {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  margin: 10px 0 0 0;
+  color: #EE3465;
+}
+
+.register__submit-button {
+  margin-top: 69px;
+  width: 100%;
+  height: 45px;
+  border: none;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #3456F3;
+  border-radius: 3px;
+  transition: 0.5s ease-in-out;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.register__submit-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.register__enter {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #A0A0A0;
+}
+
+.register__enter-link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #3456F3;
+  transition: 0.5s ease-in-out;
+}
+
+.register__enter-link:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+
+@media screen and (max-width: 890px) {
+  .register {
+    max-width: 456px;
+    width: calc(100% - 30px*2);
+    margin-top: 32px;
+  } 
+
+  .register__title {
+    width: calc(100% - 30px*2);
+  }
+
+  .register__form {
+    width: calc(100% - 30px*2);
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  .register__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .register__form {
+    width: 100%;
+  }
+}

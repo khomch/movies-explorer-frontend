@@ -1,0 +1,85 @@
+.moviescard {
+  display: grid;
+  max-width: 364px;
+  width: 100%;
+  grid-template-areas: 
+  "image image"
+  "title icon"
+  "duration .";
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.moviescard__image {
+  width: 100%;
+  grid-area: image;
+}
+
+.moviescard__title {
+  grid-area: title;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 0;
+  margin: 16px 0 0 16px;
+
+}
+
+.moviescard__icon {
+  background: url("../../images/icon-heart.svg");
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 12px;
+  grid-area: icon;
+  align-self: center;
+  justify-self: flex-end;
+  margin-top: 19px;
+  margin-right: 24px;
+  border: none;
+  transition: 0.5s ease-in-out;
+}
+
+.moviescard__icon:hover {
+  opacity: 0.3;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.moviescard__icon-remove {
+  background: url("../../images/icon-remove.svg");
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 12px;
+  grid-area: icon;
+  align-self: center;
+  justify-self: flex-end;
+  margin-top: 19px;
+  margin-right: 24px;
+  border: none;
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+
+
+
+.moviescard:hover > .moviescard__icon-remove {
+  opacity: 1;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.moviescard__icon_active {
+  background: url("../../images/icon-heart__active.svg");
+  transition: 0.5s ease-in-out;
+}
+
+.moviescard__duration {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #A0A0A0;
+  margin: 16px 0 16px 16px
+}

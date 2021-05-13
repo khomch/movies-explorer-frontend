@@ -1,0 +1,139 @@
+
+.promo__content {
+  max-width: 1140px;
+  width: calc(100% - 70px*2);
+  display: grid;
+  margin-top: 75px;
+  grid-template-columns: fit-content(610px) 1fr;
+  grid-template-areas:
+  "title image"
+  "subtitle image"
+  "button ."
+}
+
+.promo__image {
+  display: flex;
+  background-image: url('../../images/main__image.svg');
+  background-repeat: no-repeat;
+  width: 310px;
+  height: 304px;
+  grid-area: image;
+  justify-self: right;
+}
+
+.promo__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  grid-area: title;
+  margin-top: 0;
+  margin-bottom: 36px;
+}
+
+.promo__subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  max-width: 310px;
+  grid-area: subtitle;
+  margin-bottom: 146px;
+}
+
+.promo__button {
+  grid-area: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width: 129px;
+  height: 36px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  transition: 0.5s ease-in-out;
+  border: 1px solid #000000;
+  margin-bottom: 75px;
+}
+
+.promo__button:hover {
+  color: #3456F3;
+  border: 1px solid #3456F3;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 890px) {
+  .promo__content {
+    max-width: 890px;
+    width: calc(100% - 30px*2);
+    display: grid;
+    margin-top: 140px;
+    grid-template-columns: minmax(auto, 890px);
+    grid-template-areas:
+    "image"
+    "title"
+    "subtitle"
+    "button"
+  }
+  .promo__image {
+    justify-self: center;
+  }
+
+
+  .promo__title {
+    justify-self: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 22px;
+    max-width: 680px;
+  }
+
+  .promo__subtitle {
+    justify-self: center;
+    opacity: 0.5;
+    max-width: 260px;
+    margin-bottom: 92px;
+    text-align: center;
+  }
+
+  .promo__button {
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .promo__content {
+    max-width: 640px;
+    width: calc(100% - 14px*2);
+  }
+
+  .promo__image {
+    width: 210px;
+    height: 206px;
+    background-size: contain;
+  }
+
+  .promo__title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .promo__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
