@@ -13,9 +13,29 @@ function Movies(props) {
           mobileMenuIsOpen={props.mobileMenuIsOpen}
           onMobileMenuClose={props.onMobileMenuClose}
           />
-        <SearchForm/>
-        <Preloader/>
-        <MoviesCardList/>
+        <SearchForm
+          handleSearch={props.handleSearch}
+          isShortFilmsFilterOn={props.isShortFilmsFilterOn}
+          handleShortMoviesFilter={props.handleShortMoviesFilter}
+        /> 
+        {
+          props.title === '' 
+            ? 
+              <Preloader/>
+            : 
+              <MoviesCardList
+              filteredMovies={props.filteredMovies}
+              movies={props.movies}
+              onMovieLike={props.onMovieLike}
+              onMovieDelete={props.onMovieDelete}
+              savedMovies={props.savedMovies}
+              handleShowMoreClick={props.handleShowMoreClick}
+              isAllMoviesRendered={props.isAllMoviesRendered}
+            />
+
+        }
+        
+
         <Footer />  
     </div>
   );

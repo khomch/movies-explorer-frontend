@@ -4,8 +4,10 @@ import logo from '../../images/logo.svg';
 import profileIcon from '../../images/icon-account.svg';
 
 
-
 function Header(props) {
+
+  // подписываемся на контекст о пользователе хуком 
+  
   const location = useLocation();
   return (
     <>

@@ -14,18 +14,27 @@
 }
 
 .profile__name {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   max-width: 410px;
   width: 100%;
-  border-bottom: 1px solid #E8E8E8;
+  grid-template-areas: "field";
 }
 
 .profile__email {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   max-width: 410px;
   width: 100%;
+  grid-template-areas: "field";
+}
+
+.profile___error {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  margin: 4px 0 2px 0;
+  height: 10px;
+  color: #EE3465;
 }
 
 .profile__field {
@@ -33,6 +42,8 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
+  grid-area: field;
+  z-index: 200;
 }
 
 .profile__field-data {
@@ -40,6 +51,20 @@
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
+  border: none;
+  text-align: right;
+  grid-area: field;
+  z-index: 100;
+}
+
+
+
+.profile__field-data::placeholder {
+  color: rgb(75, 75, 75);
+}
+
+.profile__field-data:invalid {
+  color: #EE3465;
 }
 
 .profile__edit {
@@ -49,6 +74,8 @@
   line-height: 16px;
   transition: 0.5s ease-in-out;
   margin: 220px 0 0 0;
+  border: none;
+  background-color: #fff;
 }
 
 .profile__edit:hover {
@@ -57,7 +84,18 @@
   transition: 0.5s ease-in-out;
 }
 
+.profile__edit_inactive {
+  color:rgb(155, 155, 155);
+}
+
+.profile__edit_inactive:hover {
+  color:rgb(155, 155, 155);
+  cursor: default;
+}
+
 .profile__exit {
+  border: none;
+  background-color: #fff;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -65,10 +103,11 @@
   color: #EE3465;
   margin: 16px 0 70px 0;
   transition: 0.5s ease-in-out;
+
 }
 
 .profile__exit:hover {
-  color: #e61437;
+  opacity: 0.6;
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
