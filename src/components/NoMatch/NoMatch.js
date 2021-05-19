@@ -9,8 +9,6 @@ function NoMatch(props) {
     history.goBack()
   }
 
-  console.log(history)
-
   return (
 
     <div className="nomatch">

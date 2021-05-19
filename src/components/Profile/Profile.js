@@ -1,12 +1,12 @@
 import Header from '../Header/Header.js';
 import React from 'react';
+import InfoTooltip from '../InfoTooltip/InfoTooltip.js'
 import CurrentUserContext from '../../context/CurrentUserContext'
 
 function Profile(props) {
 
   // подписываемся на контекст о пользователе хуком 
   const currentUser = React.useContext(CurrentUserContext);
-  console.log(currentUser)
 
       //хук управления формой и валидации формы
   
@@ -24,8 +24,6 @@ function Profile(props) {
       const target = event.target;
       const name = target.name;
       const value = target.value;
-
-      console.log(event.target.validity.patternMismatch)
 
       setValues({...values, [name]: value});
       setErrors({...errors, [name]: target.validationMessage});
@@ -52,6 +50,7 @@ function Profile(props) {
           mobileMenuIsOpen={props.mobileMenuIsOpen}
           onMobileMenuClose={props.onMobileMenuClose}
         />
+        <InfoTooltip isOpen={props.isOpen} isAuthOk={props.loggedIn} onClose={props.closeAllPopups}/>
       <h2 className="profile__title">Привет, {currentUser.name}!</h2>
       
         <form className="profile__name" method="GET" action="#" name='edit-profile' onSubmit={handleSubmit}>

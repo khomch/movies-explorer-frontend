@@ -5,8 +5,9 @@ import Preloader from '../Preloader/Preloader.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 
 function Movies(props) {
+  
   return (
-
+  
     <div className="movies">
         <Header
           openMobileMenu={props.openMobileMenu}
@@ -14,12 +15,14 @@ function Movies(props) {
           onMobileMenuClose={props.onMobileMenuClose}
           />
         <SearchForm
+          locallyStoragedTitle={props.locallyStoragedTitle}
           handleSearch={props.handleSearch}
           isShortFilmsFilterOn={props.isShortFilmsFilterOn}
           handleShortMoviesFilter={props.handleShortMoviesFilter}
         /> 
+
         {
-          props.title === '' 
+          props.locallyStoragedTitle === ''
             ? 
               <Preloader/>
             : 

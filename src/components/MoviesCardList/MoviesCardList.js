@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 
 function MoviesCardList(props) {
+  
 
   const location = useLocation();
 
@@ -17,6 +18,7 @@ function MoviesCardList(props) {
             
             
               props.filteredMovies.map((movie) => (
+                
                 <MoviesCard
                   movie={movie}
                   key={movie._id || movie.id} 

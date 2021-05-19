@@ -45,6 +45,8 @@ function App() {
       }
     };
 
+
+
     const initialNumberOfMoviesByWidth = () => {
       if (screenWidth > 1027) { 
         return 3 
@@ -75,6 +77,7 @@ function App() {
     mainApi.setProfileInfo(data)
     .then((data) => {
       if (data.ok) {
+        setInfoTooltipPopupOpen(true)
         data.json().then(result => {
           currentUserUpdate({
             email: result.email,
@@ -98,11 +101,50 @@ function App() {
   // стейт с запросом из поисковой строки
   const [title, setTitle] = React.useState('');
 
+
+  const localStoragedFilms = JSON.parse(localStorage.getItem('localStoragedMovies'));
+
+  // стейт с фильмами из локал сторежджа
+  const locallyStoragedTitle = JSON.parse(localStorage.getItem('title'));
+  
   // стейт с фильмами после запроса
   const [foundMovies, setFoundMovies ] = React.useState([]);
 
   // стейт с отфильтрованными фильмами
   const [filteredMovies, setFilteredMovies ] = React.useState([]);
+
+
+  const checkIfLocalMoviesExists = React.useCallback(
+    () => {
+      if (localStoragedFilms) {
+        
+        setMovies(localStoragedFilms)
+        setFoundMovies(localStoragedFilms.filter((movie) => (movie.nameRU.toLowerCase() || movie.description.toLowerCase()).includes(locallyStoragedTitle.toLowerCase())))
+        
+        setCountTo(initialNumberOfMoviesByWidth() + increaseCounterBy())
+        handleSavedMoviesSearch()
+      } else {
+        moviesApi.getMovies()
+        .then(data => {
+          setMovies(data)
+          localStorage.setItem('localStoragedMovies', JSON.stringify(data));
+          })
+        .catch((err) => 'Ошибка: ' + err)
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [localStoragedFilms, filteredMovies, foundMovies, movies]
+  )
+  
+  React.useEffect(()=> {
+    setFilteredMovies(foundMovies.slice(0, initialNumberOfMoviesByWidth()))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[foundMovies])
+
+ 
+
+  
+
 
   // стейт со счетчиком 
   const [countTo, setCountTo] = React.useState(increaseCounterBy());
@@ -110,6 +152,7 @@ function App() {
   // стейт для текста ошибки с сервера
   const [errorMessage, setErrorMessage] = React.useState('')
 
+  const  [infoTooltipPopupOpen, setInfoTooltipPopupOpen] = React.useState(false);
 
   const handleRegister = (name, email, password, history) => {
     auth.register(name, email, password)
@@ -147,6 +190,7 @@ function App() {
     .catch(err => 'Ошибка: ' + err) 
   }
   
+
   const proceedSignIn = React.useCallback(() => { 
     if (loggedIn === true) {
       mainApi.getProfileInfo()
@@ -159,29 +203,28 @@ function App() {
         }));
       })
       .catch((err) => 'Ошибка: ' + err)
-      
-      moviesApi.getMovies()
-        .then(data => {
-          setMovies(data)
-          })
-        .catch((err) => 'Ошибка: ' + err)
-      
+
+      checkIfLocalMoviesExists()
+  
+
       mainApi.getSavedMovies()
         .then((data) => {
           setSavedMovies(data)
         })
     }
   }, 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   [loggedIn]);
 
   const proceedSignOut = React.useCallback(() => {
     setUserData(setLoggedIn(false)); 
-    setMovies([]); }, 
+    setMovies([]); 
+  }, 
   []);
 
   React.useEffect(() => { 
     loggedIn 
-    ? proceedSignIn() 
+    ? proceedSignIn()
     :  proceedSignOut();
     }, 
   [loggedIn, proceedSignIn, proceedSignOut]);
@@ -193,7 +236,7 @@ function App() {
     if (!token) {
       return proceedSignOut()
     } else {
-      return setLoggedIn(true)
+      setLoggedIn(true)
     }
   }, [proceedSignOut])
 
@@ -206,6 +249,11 @@ function App() {
     setLoggedIn(false);
     localStorage.removeItem('token');
     setUserData('');
+    currentUserUpdate('')
+    setFilteredMovies([])
+    localStorage.setItem('storagedFilteredMovies', JSON.stringify([]))
+    localStorage.setItem('title', JSON.stringify(''))
+    localStorage.removeItem('localStoragedMovies')
   }
 
 
@@ -220,6 +268,7 @@ function App() {
   // обработчик закрытия попапов
   const closeAllPopups = () => {
     setMobileMenuOpen(false)
+    setInfoTooltipPopupOpen(false)
   }
 
   const handleMovieLike = (movie) => {
@@ -253,6 +302,36 @@ function App() {
 
   const [isAllMoviesRendered, setIsAllMoviesRendered] = React.useState(false)
 
+
+  
+
+
+  // стейт количества найденых фильмов
+  
+
+  const handleSearch = (data) => {
+    localStorage.setItem('title', JSON.stringify(data.title))
+    setTitle(data.title)
+    const moviesArray = (movies.filter((movie) => (movie.nameRU.toLowerCase() || movie.description.toLowerCase()).includes(data.title.toLowerCase())))
+    setFoundMovies(moviesArray)
+    checkIfAllMoviesRendered()
+    setFilteredMovies(moviesArray.slice(0, initialNumberOfMoviesByWidth()))
+    setCountTo(initialNumberOfMoviesByWidth() + increaseCounterBy())
+    setIsShortFilmsFilterOn(false)
+  }  
+  
+  const [savedMoviesInitialArray, setSavedMoviesInitialArray] = React.useState([])
+  const handleSavedMoviesSearch = (data) => {
+    setSavedMoviesInitialArray(savedMovies)
+    const moviesArray = (savedMovies.filter((movie) => (movie.nameRU.toLowerCase() || movie.description.toLowerCase()).includes(data.title.toLowerCase())))
+    setSavedMovies(moviesArray)
+    
+  } 
+
+  const sliceFilteredMovies = () => {
+    setFilteredMovies(foundMovies.slice(0, countTo))
+  }
+
   const checkIfAllMoviesRendered = React.useCallback(() => {
     if (foundMovies.length === filteredMovies.length) {
       return setIsAllMoviesRendered(true)
@@ -265,29 +344,6 @@ function App() {
   React.useEffect(() => {
     checkIfAllMoviesRendered()
   }, [checkIfAllMoviesRendered])
-
-  const handleSearch = (data) => {
-    setTitle(data.title)
-    const moviesArray = (movies.filter((movie) => (movie.nameRU.toLowerCase() || movie.description.toLowerCase()).includes(data.title.toLowerCase())))
-    setFoundMovies(moviesArray)
-    checkIfAllMoviesRendered()
-    setFilteredMovies(moviesArray.slice(0, initialNumberOfMoviesByWidth()))
-    setCountTo(initialNumberOfMoviesByWidth() + increaseCounterBy())
-    setIsShortFilmsFilterOn(false)
-  }
-
-  const [savedMoviesInitialArray, setSavedMoviesInitialArray] = React.useState([])
-  const handleSavedMoviesSearch = (data) => {
-    setSavedMoviesInitialArray(savedMovies)
-    const moviesArray = (savedMovies.filter((movie) => (movie.nameRU.toLowerCase() || movie.description.toLowerCase()).includes(data.title.toLowerCase())))
-    setSavedMovies(moviesArray)
-    
-  } 
-  
-
-  const sliceFilteredMovies = () => {
-    setFilteredMovies(foundMovies.slice(0, countTo))
-  }
 
   // стейт для определения нажат ли чекбокс для короткометражек
   const [isShortFilmsFilterOn, setIsShortFilmsFilterOn] = React.useState(false)
@@ -328,6 +384,9 @@ function App() {
     sliceFilteredMovies()
     setCountTo(countTo + increaseCounterBy())
   }
+
+
+
 
 
   if (loggedIn === null) {
@@ -377,10 +436,10 @@ function App() {
         <Switch>
           <Route path="/movies">
             <Movies
+              
               openMobileMenu={handleOpenMobileMenuClick}
               mobileMenuIsOpen={mobileMenuOpen}
               onMobileMenuClose={closeAllPopups}
-
               movies={movies}
               savedMovies={savedMovies}
               onMovieLike={handleMovieLike}
@@ -388,11 +447,12 @@ function App() {
               handleSearch={handleSearch}
               filteredMovies={filteredMovies}
               title={title}
-
+              locallyStoragedTitle={locallyStoragedTitle}
               handleShowMoreClick={handleShowMoreClick}
               isAllMoviesRendered={isAllMoviesRendered}
               isShortFilmsFilterOn={isShortFilmsFilterOn}
               handleShortMoviesFilter={handleShortMoviesFilter}
+              
             />
           </Route>
 
@@ -412,6 +472,9 @@ function App() {
 
           <Route path="/profile">
             <Profile
+              closeAllPopups={closeAllPopups}
+              loggedIn={loggedIn} 
+              isOpen={infoTooltipPopupOpen}
               openMobileMenu={handleOpenMobileMenuClick}
               mobileMenuIsOpen={mobileMenuOpen}
               onMobileMenuClose={closeAllPopups}
