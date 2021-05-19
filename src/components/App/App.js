@@ -158,8 +158,7 @@ function App() {
     auth.register(name, email, password)
     .then((data) => {
       if (data.ok) {
-        handleLogin(email, password)
-        history.push('/movies');
+        handleLogin(email, password, history)
         
       } else {
           data.json().then(result => setErrorMessage(result.message))
