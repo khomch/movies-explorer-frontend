@@ -2,14 +2,44 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import profileIcon from '../../images/icon-account.svg';
-
+import CurrentUserContext from '../../context/CurrentUserContext'
 
 
 function Header(props) {
+  // подписываемся на контекст о пользователе хуком 
+  const currentUser = React.useContext(CurrentUserContext);
+  
+  
   const location = useLocation();
   return (
     <>
-        {location.pathname === "/movies"
+
+        {location.pathname === "/" && currentUser._id === undefined 
+            ?
+            <header className="header">
+              <Link className="header__logo" to="/"><img src={logo} alt="Логотип сайта"/></Link>
+              <div className="header__menu">
+                <Link className="header__button-register" to="/signup">Регистрация</Link> 
+                <Link className="header__button-signin" to="/signin">Войти</Link>
+              </div>
+              </header>
+            : ""
+        }
+
+          {location.pathname === "/" && currentUser._id !== undefined 
+            ?
+              <header className="header">
+                <Link className="header__logo" to="/"><img src={logo} alt="Логотип сайта"/></Link>
+                <ul className="header__user-menu header__user-menu_hidden">
+                  <li className="header__list-link"><Link className="header__button-link" to="/movies">Фильмы</Link></li>
+                  <li className="header__list-link"><Link className="header__button-link" to="/saved-movies">Сохраненные фильмы</Link></li>
+                </ul>
+                <Link className="header__button-profile header__button-profile_hidden" to="/profile"><img src={profileIcon} alt="Вход в аккаунт" className="header__button-profile-icon"/> <p className="header__button-profile-text" >Аккаунт</p></Link>
+                <button type="button" className="header__open-menu" onClick={props.openMobileMenu}/>
+              </header>
+            : ""
+          }
+        {location.pathname === "/movies" 
           ? 
           <header className="header">
             <Link className="header__logo" to="/"><img src={logo} alt="Логотип сайта"/></Link>
@@ -60,19 +90,6 @@ function Header(props) {
             <Link className="header__button-profile header__button-profile_hidden" to="/profile"><img src={profileIcon} alt="Вход в аккаунт" className="header__button-profile-icon"/> <p className="header__button-profile-text" >Аккаунт</p></Link>
             <button type="button" className="header__open-menu" onClick={props.openMobileMenu}/>
           </header>
-          : 
-          ""
-        }
-
-        {location.pathname === "/"
-          ?
-          <header className="header">
-            <Link className="header__logo" to="/"><img src={logo} alt="Логотип сайта"/></Link>
-            <div className="header__menu">
-              <Link className="header__button-register" to="/signup">Регистрация</Link> 
-              <Link className="header__button-signin" to="/signin">Войти</Link>
-            </div>
-            </header>
           : 
           ""
         }

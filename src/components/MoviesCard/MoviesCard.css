@@ -7,13 +7,18 @@
   "title icon"
   "duration .";
   background-color: #fff;
-  border-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 }
 
 .moviescard__image {
   width: 100%;
   grid-area: image;
+  object-fit: cover;
+  height: 203px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
 
 .moviescard__title {

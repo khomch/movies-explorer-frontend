@@ -1,7 +1,6 @@
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import SearchForm from '../SearchForm/SearchForm.js';
-import Preloader from '../Preloader/Preloader.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 
 function SavedMovies(props) {
@@ -14,9 +13,18 @@ function SavedMovies(props) {
           mobileMenuIsOpen={props.mobileMenuIsOpen}
           onMobileMenuClose={props.onMobileMenuClose}
         />
-        <SearchForm/>
-        <Preloader/>
-        <MoviesCardList/>
+        <SearchForm
+          handleSearch={props.handleSearch}
+          isShortFilmsFilterOn={props.isShortFilmsFilterOn}
+          handleShortMoviesFilter={props.handleShortMoviesFilter}
+          />
+        <MoviesCardList
+          movies={props.savedMovies}
+          onMovieLike={props.onMovieLike}
+          onMovieDelete={props.onMovieDelete}
+          savedMovies={props.savedMovies}
+          
+        />
         <Footer />  
     </div>
   );

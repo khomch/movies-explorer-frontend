@@ -30,6 +30,10 @@
   transition: 0.5s ease-in-out;
 }
 
+.moviescardlist__showmore_hidden {
+  display: none;
+}
+
 .moviescardlist__showmore:hover {
   background: #ffffff;
   cursor: pointer;
@@ -43,7 +47,7 @@
   } 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 645px) {
   .moviescardlist__container {
     max-width: 640px;
     width: calc(100% - 14px*2);

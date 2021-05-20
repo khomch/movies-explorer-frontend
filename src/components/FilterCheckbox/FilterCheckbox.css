@@ -14,6 +14,26 @@
 .filtercheckbox__checkbox {
   justify-self: flex-end;
   align-self: center;
+  border: none;
+  background: url('../../images/checkbox-active.svg');
+  width: 36px;
+  height: 20px;
+  transition: 0.5s ease-in-out;
+}
+
+.filtercheckbox__checkbox:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+}
+
+.filtercheckbox__checkbox_inactive {
+  justify-self: flex-end;
+  align-self: center;
+  border: none;
+  background: url('../../images/checkbox-inactive.svg');
+  width: 36px;
+  height: 20px;
 }
 
 .filtercheckbox__caption {

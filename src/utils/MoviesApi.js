@@ -9,7 +9,8 @@ export class Api {
   constructor(config) {
     this._url = config.url;
   }
-  getFilms() {
+
+  getMovies() {
     return fetch(`${this._url}/`, {
       method: "GET",
     }).then(handleOriginalResponse);
