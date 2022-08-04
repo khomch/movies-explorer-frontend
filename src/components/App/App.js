@@ -111,6 +111,14 @@ function App() {
   // стейт с фильмами после запроса
   const [foundMovies, setFoundMovies ] = React.useState([]);
 
+  console.log(movies)
+  console.log(foundMovies)
+  
+
+  useEffect(()=> {
+    setFoundMovies(movies)
+  }, [movies])
+
   // стейт с отфильтрованными фильмами
   const [filteredMovies, setFilteredMovies ] = React.useState([]);
 
@@ -137,15 +145,12 @@ function App() {
     [localStoragedFilms, filteredMovies, foundMovies, movies]
   )
   
-  React.useEffect(()=> {
+  useEffect(()=> {
     setFilteredMovies(foundMovies.slice(0, initialNumberOfMoviesByWidth()))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[foundMovies])
 
  
-
-  
-
 
   // стейт со счетчиком 
   const [countTo, setCountTo] = React.useState(increaseCounterBy());
