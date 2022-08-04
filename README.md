@@ -1,7 +1,7 @@
 # **Сервис для поиска короткометражек: frontend на React.**
 Фронтенд приложения `Movies-explorer`: поиск по базе короткометражек, возможность поставить лайк (сохранить и избранное) и удалить его, регистрация пользователей, личный кабинет с избранными фильмами. 
 
-![Проект Movies-explorer-frontend](https://github.com/khomch/movies-explorer-frontend/blob/main/readme/movies-explorer-search.jpg?raw=true)
+![Проект Movies-explorer-frontend](https://github.com/khomch/movies-explorer-frontend/blob/main/readme/movies-explorer-search.png?raw=true)
 
 ## Технологии
 1. React
