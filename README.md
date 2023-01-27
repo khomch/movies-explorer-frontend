@@ -6,10 +6,9 @@ Frontend of `Movies-explorer`: search, like movies, user registration, profile w
 ## Technologies
 1. React
 2. Express.js
-3. MongoDB
-4. JS
-5. CSS Grid & Flex
-6. Git
+3. JS
+4. CSS Grid & Flex
+5. Git
 
 
 ## Now to install
