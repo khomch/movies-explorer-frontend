@@ -1,4 +1,4 @@
-# **Service for search of short movies: frontend on React.**
+# **Service for search of short movies: frontend [React].**
 Frontend of `Movies-explorer`: search, like movies, user registration, profile with liked movies. 
 
 ![Project Movies-explorer-frontend](https://github.com/khomch/movies-explorer-frontend/blob/main/readme/movies-explorer-search.png?raw=true)
